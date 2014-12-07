@@ -1,0 +1,26 @@
+{
+  "name": "gulp-vinyl-zip",
+  "version": "0.0.1",
+  "description": "Vinyl adapter for zip archives",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaomoreno/gulp-vinyl-zip.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "adm-zip",
+    "zip",
+    "vinyl",
+    "vinyl-zip"
+  ],
+  "author": "João Moreno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaomoreno/gulp-vinyl-zip/issues"
+  },
+  "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip"
+}
