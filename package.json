@@ -22,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/joaomoreno/gulp-vinyl-zip/issues"
   },
-  "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip"
+  "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
+  "dependencies": {
+    "adm-zip": "^0.4.4",
+    "through2": "^0.6.3",
+    "vinyl": "^0.4.6"
+  },
+  "devDependencies": {
+    "temp": "^0.8.1",
+    "vinyl-fs": "^0.3.13"
+  }
 }
