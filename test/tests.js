@@ -71,7 +71,7 @@ describe('gulp-vinyl-zip', function () {
 						assert.equal(attrs[file.path], file.attr);
 						cb();
 					}, function () {
-						assert.equal(5, count);
+						assert.equal(7, count);
 						rimraf.sync(dest);
 						cb();
 					}));
