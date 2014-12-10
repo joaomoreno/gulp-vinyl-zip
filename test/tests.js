@@ -50,33 +50,49 @@ describe('gulp-vinyl-zip', function () {
 			});
 	});
 	
-	// it('dest should preserve attr', function (cb) {
-	// 	var dest = temp.openSync('gulp-vinyl-zip-test').path;
-	// 	var attrs = Object.create(null);
+	it('dest should preserve stat', function (cb) {
+		var dest = temp.openSync('gulp-vinyl-zip-test').path;
+		var stats = Object.create(null);
 		
-	// 	lib.src(path.join(__dirname, 'assets', 'archive.zip'))
-	// 		.pipe(through.obj(function (file, enc, cb) {
-	// 			assert(file.attr);
-	// 			attrs[file.path] = file.attr;
-	// 			cb(null, file);
-	// 		}, function (cb) {
-	// 			this.emit('end');
-	// 			cb();
-	// 		}))
-	// 		.pipe(lib.dest(dest))
-	// 		.on('end', function () {
-	// 			var count = 0;
+		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
+			.pipe(through.obj(function (file, enc, cb) {
+				assert(file.stat);
+				stats[file.path] = file.stat;
+				cb(null, file);
+			}, function (cb) {
+				this.emit('end');
+				cb();
+			}))
+			.pipe(lib.dest(dest))
+			.on('end', function () {
+				var count = 0;
 				
-	// 			lib.src(dest)
-	// 				.pipe(through.obj(function (file, enc, cb) {
-	// 					count++;
-	// 					assert.equal(attrs[file.path], file.attr);
-	// 					cb();
-	// 				}, function () {
-	// 					assert.equal(7, count);
-	// 					rimraf.sync(dest);
-	// 					cb();
-	// 				}));
-	// 		});
-	// });
+				lib.src(dest)
+					.pipe(through.obj(function (file, enc, cb) {
+						count++;
+
+						if (stats[file.path].atime || file.stat.atime) {
+							assert.equal(stats[file.path].atime.getTime(), file.stat.atime.getTime());
+						}
+
+						if (stats[file.path].ctime || file.stat.ctime) {
+							assert.equal(stats[file.path].ctime.getTime(), file.stat.ctime.getTime());
+						}
+
+						if (stats[file.path].mtime || file.stat.mtime) {
+							assert.equal(stats[file.path].mtime.getTime(), file.stat.mtime.getTime());
+						}
+
+						assert.equal(stats[file.path].isFile(), file.stat.isFile());
+						assert.equal(stats[file.path].isDirectory(), file.stat.isDirectory());
+						assert.equal(stats[file.path].isSymbolicLink(), file.stat.isSymbolicLink());
+						
+						cb();
+					}, function () {
+						assert.equal(7, count);
+						rimraf.sync(dest);
+						cb();
+					}));
+			});
+	});
 });
