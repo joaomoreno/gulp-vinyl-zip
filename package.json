@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
   "dependencies": {
+    "libarchive": "0.0.1",
     "through2": "^0.6.3",
     "vinyl": "^0.4.6"
   },
