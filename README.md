@@ -1,6 +1,6 @@
 # Usage
 
-## Archive → Archive
+**Archive → Archive**
 
 ```javascript
 var gulp = require('gulp');
@@ -13,7 +13,7 @@ gulp.task('default', function () {
 });
 ```
 
-## Archive → File System
+**Archive → File System**
 
 ```javascript
 var gulp = require('gulp');
@@ -26,7 +26,7 @@ gulp.task('default', function () {
 });
 ```
 
-## File System → Archive
+**File System → Archive**
 
 ```javascript
 var gulp = require('gulp');
