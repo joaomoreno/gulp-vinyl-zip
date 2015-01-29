@@ -30,11 +30,11 @@
     "yazl": "^2.1.0",
     "yauzl": "^2.2.1",
     "through2": "^0.6.3",
-    "vinyl": "^0.4.6"
+    "vinyl": "^0.4.6",
+    "vinyl-fs": "^0.3.13"
   },
   "devDependencies": {
     "rimraf": "^2.2.8",
-    "temp": "^0.8.1",
-    "vinyl-fs": "^0.3.13"
+    "temp": "^0.8.1"
   }
 }
