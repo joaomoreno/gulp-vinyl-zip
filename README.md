@@ -38,3 +38,18 @@ gulp.task('default', function () {
 		.pipe(zip.dest('out.zip'));
 });
 ```
+
+**File System → Archive Stream → Disk**
+
+```javascript
+var gulp = require('gulp');
+var zip = require('gulp-vinyl-zip').zip; // zip transform only
+
+gulp.task('default', function () {
+	return gulp.src('src/**/*')
+		.pipe(/* knock yourself out */)
+		.pipe(zip('out.zip')
+		.pipe(/* knock your zip out */)
+		.pipe(gulp.dest('./'));
+});
+```
