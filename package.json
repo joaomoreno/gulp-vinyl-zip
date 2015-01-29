@@ -1,28 +1,31 @@
 {
-  "name": "gulp-vinyl-zip",
-  "version": "0.0.5",
-  "description": "Streaming vinyl adapter for zip archives",
+  "name": "gulp-vinyl-yazl",
+  "version": "0.1.0",
+  "description": "Pure JavaScript, streaming vinyl adapter for zip archives",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joaomoreno/gulp-vinyl-zip.git"
+    "url": "https://github.com/blvz/gulp-vinyl-yazl.git"
   },
   "keywords": [
+    "gulp",
     "gulpplugin",
-    "adm-zip",
+    "yazl",
+    "yazul",
     "zip",
+    "streams",
     "vinyl",
     "vinyl-zip"
   ],
-  "author": "João Moreno",
+  "author": "Rafael Belvederese",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joaomoreno/gulp-vinyl-zip/issues"
+    "url": "https://github.com/blvz/gulp-vinyl-yazl/issues"
   },
-  "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
+  "homepage": "https://github.com/blvz/gulp-vinyl-yazl",
   "dependencies": {
     "yazl": "^2.1.0",
     "yauzl": "^2.2.1",
