@@ -1,6 +1,6 @@
 {
   "name": "gulp-vinyl-yazl",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Pure JavaScript, streaming vinyl adapter for zip archives",
   "main": "index.js",
   "scripts": {
