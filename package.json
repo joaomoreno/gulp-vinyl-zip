@@ -18,13 +18,13 @@
     "vinyl-zip"
   ],
   "author": "João Moreno",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/joaomoreno/gulp-vinyl-zip/issues"
   },
   "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
   "dependencies": {
-    "libarchive": "^0.0.5",
+    "libarchive": "^0.0.6",
     "through2": "^0.6.3",
     "vinyl": "^0.4.6"
   },
