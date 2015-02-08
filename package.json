@@ -8,29 +8,34 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joaomoreno/gulp-vinyl-zip.git"
+    "url": "https://github.com/blvz/gulp-vinyl-yazl.git"
   },
   "keywords": [
+    "gulp",
     "gulpplugin",
-    "adm-zip",
+    "yazl",
+    "yazul",
     "zip",
+    "streams",
     "vinyl",
     "vinyl-zip"
   ],
   "author": "João Moreno",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joaomoreno/gulp-vinyl-zip/issues"
+    "url": "https://github.com/blvz/gulp-vinyl-yazl/issues"
   },
-  "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
+  "homepage": "https://github.com/blvz/gulp-vinyl-yazl",
   "dependencies": {
-    "libarchive": "^0.0.6",
+    "queue": "^3.0.10",
     "through2": "^0.6.3",
-    "vinyl": "^0.4.6"
+    "vinyl": "^0.4.6",
+    "vinyl-fs": "^0.3.13",
+    "yauzl": "^2.2.1",
+    "yazl": "^2.1.0"
   },
   "devDependencies": {
     "rimraf": "^2.2.8",
-    "temp": "^0.8.1",
-    "vinyl-fs": "^0.3.13"
+    "temp": "^0.8.1"
   }
 }

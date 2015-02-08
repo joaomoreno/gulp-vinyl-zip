@@ -12,7 +12,7 @@ var lib = require('..');
 describe('gulp-vinyl-zip', function () {
 	it('src should be able to read from archives', function (cb) {
 		var count = 0;
-		
+
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
 			.pipe(through.obj(function(chunk, enc, cb) {
 				count++;
@@ -22,7 +22,7 @@ describe('gulp-vinyl-zip', function () {
 				cb();
 			}));
 	});
-	
+
 	it('dest should be able to create an archive from another archive', function (cb) {
 		var dest = temp.openSync('gulp-vinyl-zip-test').path;
 
@@ -34,10 +34,10 @@ describe('gulp-vinyl-zip', function () {
 				cb();
 			});
 	});
-	
+
 	it('should be compatible with vinyl-fs', function (cb) {
 		var dest = temp.mkdirSync('gulp-vinyl-zip-test');
-		
+
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
 			.pipe(vfs.dest(dest))
 			.on('end', function () {
@@ -49,11 +49,11 @@ describe('gulp-vinyl-zip', function () {
 				cb();
 			});
 	});
-	
+
 	it('dest should preserve stat', function (cb) {
 		var dest = temp.openSync('gulp-vinyl-zip-test').path;
 		var stats = Object.create(null);
-		
+
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
 			.pipe(through.obj(function (file, enc, cb) {
 				assert(file.stat);
@@ -66,7 +66,7 @@ describe('gulp-vinyl-zip', function () {
 			.pipe(lib.dest(dest))
 			.on('end', function () {
 				var count = 0;
-				
+
 				lib.src(dest)
 					.pipe(through.obj(function (file, enc, cb) {
 						count++;
@@ -86,7 +86,7 @@ describe('gulp-vinyl-zip', function () {
 						assert.equal(stats[file.path].isFile(), file.stat.isFile());
 						assert.equal(stats[file.path].isDirectory(), file.stat.isDirectory());
 						assert.equal(stats[file.path].isSymbolicLink(), file.stat.isSymbolicLink());
-						
+
 						cb();
 					}, function () {
 						assert.equal(7, count);
