@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/blvz/gulp-vinyl-yazl.git"
+    "url": "https://github.com/joaomoreno/gulp-vinyl-zip.git"
   },
   "keywords": [
     "gulp",
@@ -23,9 +23,9 @@
   "author": "João Moreno",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blvz/gulp-vinyl-yazl/issues"
+    "url": "https://github.com/joaomoreno/gulp-vinyl-zip/issues"
   },
-  "homepage": "https://github.com/blvz/gulp-vinyl-yazl",
+  "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
   "dependencies": {
     "queue": "^3.0.10",
     "through2": "^0.6.3",
