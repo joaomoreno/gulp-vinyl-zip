@@ -9,7 +9,7 @@ var vfs = require('vinyl-fs');
 var rimraf = require('rimraf');
 var lib = require('..');
 
-describe('gulp-vinyl-yazl', function () {
+describe('gulp-vinyl-zip', function () {
 	it('src should be able to read from archives', function (cb) {
 		var count = 0;
 
@@ -24,7 +24,7 @@ describe('gulp-vinyl-yazl', function () {
 	});
 
 	it('dest should be able to create an archive from another archive', function (cb) {
-		var dest = temp.openSync('gulp-vinyl-yazl-test').path;
+		var dest = temp.openSync('gulp-vinyl-zip-test').path;
 
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
 			.pipe(lib.dest(dest))
@@ -36,7 +36,7 @@ describe('gulp-vinyl-yazl', function () {
 	});
 
 	it('should be compatible with vinyl-fs', function (cb) {
-		var dest = temp.mkdirSync('gulp-vinyl-yazl-test');
+		var dest = temp.mkdirSync('gulp-vinyl-zip-test');
 
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
 			.pipe(vfs.dest(dest))
@@ -51,7 +51,7 @@ describe('gulp-vinyl-yazl', function () {
 	});
 
 	it('dest should preserve stat', function (cb) {
-		var dest = temp.openSync('gulp-vinyl-yazl-test').path;
+		var dest = temp.openSync('gulp-vinyl-zip-test').path;
 		var stats = Object.create(null);
 
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
