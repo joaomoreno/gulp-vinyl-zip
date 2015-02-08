@@ -35,6 +35,19 @@ describe('gulp-vinyl-zip', function () {
 			});
 	});
 
+	it('dest should be able to create an archive\'s directory tree', function (cb) {
+		var dest = temp.mkdirSync('gulp-vinyl-zip-test');
+		var archive = path.join(dest, 'foo', 'bar', 'archive.zip');
+
+		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
+			.pipe(lib.dest(archive))
+			.on('end', function () {
+				assert(fs.existsSync(archive));
+				rimraf.sync(dest);
+				cb();
+			});
+	});
+
 	it('should be compatible with vinyl-fs', function (cb) {
 		var dest = temp.mkdirSync('gulp-vinyl-zip-test');
 
