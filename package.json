@@ -27,11 +27,12 @@
   },
   "homepage": "https://github.com/blvz/gulp-vinyl-yazl",
   "dependencies": {
-    "yazl": "^2.1.0",
-    "yauzl": "^2.2.1",
+    "queue": "^3.0.10",
     "through2": "^0.6.3",
     "vinyl": "^0.4.6",
-    "vinyl-fs": "^0.3.13"
+    "vinyl-fs": "^0.3.13",
+    "yauzl": "^2.2.1",
+    "yazl": "^2.1.0"
   },
   "devDependencies": {
     "rimraf": "^2.2.8",
