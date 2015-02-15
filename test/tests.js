@@ -4,7 +4,7 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var through = require('through2');
-var temp = require('temp');
+var temp = require('temp').track();
 var vfs = require('vinyl-fs');
 var rimraf = require('rimraf');
 var lib = require('..');
@@ -30,7 +30,6 @@ describe('gulp-vinyl-zip', function () {
 			.pipe(lib.dest(dest))
 			.on('end', function () {
 				assert(fs.existsSync(dest));
-				rimraf.sync(dest);
 				cb();
 			});
 	});
@@ -43,7 +42,6 @@ describe('gulp-vinyl-zip', function () {
 			.pipe(lib.dest(archive))
 			.on('end', function () {
 				assert(fs.existsSync(archive));
-				rimraf.sync(dest);
 				cb();
 			});
 	});
@@ -58,7 +56,6 @@ describe('gulp-vinyl-zip', function () {
 
 				// TODO: this should be 4, but symlinks are not supported by vinyl-fs yet
 				assert.equal(3, fs.readdirSync(dest).length);
-				rimraf.sync(dest);
 				cb();
 			});
 	});
@@ -103,7 +100,6 @@ describe('gulp-vinyl-zip', function () {
 						cb();
 					}, function () {
 						assert.equal(7, count);
-						rimraf.sync(dest);
 						cb();
 					}));
 			});
