@@ -1,6 +1,8 @@
 # gulp-vinyl-zip
 
-A library for creating and extracting ZIP archives from/to streams. Uses [yazl](https://github.com/thejoshwolfe/yazl)
+A library for creating and extracting ZIP archives from/to streams.
+
+Uses [yazl](https://github.com/thejoshwolfe/yazl)
 and [yauzl](https://github.com/thejoshwolfe/yauzl).
 
 ## Usage
