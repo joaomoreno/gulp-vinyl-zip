@@ -11,7 +11,7 @@ and [yauzl](https://github.com/thejoshwolfe/yauzl).
 
 ```javascript
 var gulp = require('gulp');
-var zip = require('gulp-vinyl-yazl');
+var zip = require('gulp-vinyl-zip');
 
 gulp.task('default', function () {
 	return zip.src('src.zip')
@@ -24,7 +24,7 @@ gulp.task('default', function () {
 
 ```javascript
 var gulp = require('gulp');
-var zip = require('gulp-vinyl-yazl');
+var zip = require('gulp-vinyl-zip');
 
 gulp.task('default', function () {
 	return zip.src('src.zip')
@@ -37,7 +37,7 @@ gulp.task('default', function () {
 
 ```javascript
 var gulp = require('gulp');
-var zip = require('gulp-vinyl-yazl');
+var zip = require('gulp-vinyl-zip');
 
 gulp.task('default', function () {
 	return gulp.src('src/**/*')
@@ -50,7 +50,7 @@ gulp.task('default', function () {
 
 ```javascript
 var gulp = require('gulp');
-var zip = require('gulp-vinyl-yazl').zip; // zip transform only
+var zip = require('gulp-vinyl-zip').zip; // zip transform only
 
 gulp.task('default', function () {
 	return gulp.src('src/**/*')
