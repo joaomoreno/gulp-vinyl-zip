@@ -1,6 +1,6 @@
 {
   "name": "gulp-vinyl-zip",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Streaming vinyl adapter for zip archives",
   "main": "index.js",
   "scripts": {
