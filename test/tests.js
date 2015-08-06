@@ -104,4 +104,17 @@ describe('gulp-vinyl-zip', function () {
 					}));
 			});
 	});
+
+	it('dest should not assume files have `stat`', function (cb) {
+		var dest = temp.openSync('gulp-vinyl-zip-test').path;
+
+		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
+			.pipe(through.obj(function(chunk, enc, cb) {
+				delete chunk.stat;
+				this.push(chunk);
+				cb();
+			}))
+			.pipe(lib.dest(dest))
+			.on('end', cb);
+	});
 });
