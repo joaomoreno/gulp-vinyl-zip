@@ -81,15 +81,15 @@ describe('gulp-vinyl-zip', function () {
 					.pipe(through.obj(function (file, enc, cb) {
 						count++;
 
-						if (stats[file.path].atime || file.stat.atime) {
+						if (stats[file.path].atime.valueOf() || file.stat.atime.valueOf()) {
 							assert.equal(stats[file.path].atime.getTime(), file.stat.atime.getTime());
 						}
 
-						if (stats[file.path].ctime || file.stat.ctime) {
+						if (stats[file.path].ctime.valueOf() || file.stat.ctime.valueOf()) {
 							assert.equal(stats[file.path].ctime.getTime(), file.stat.ctime.getTime());
 						}
 
-						if (stats[file.path].mtime || file.stat.mtime) {
+						if (stats[file.path].mtime.valueOf() || file.stat.mtime.valueOf()) {
 							assert.equal(stats[file.path].mtime.getTime(), file.stat.mtime.getTime());
 						}
 
@@ -103,5 +103,18 @@ describe('gulp-vinyl-zip', function () {
 						cb();
 					}));
 			});
+	});
+
+	it('dest should not assume files have `stat`', function (cb) {
+		var dest = temp.openSync('gulp-vinyl-zip-test').path;
+
+		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
+			.pipe(through.obj(function(chunk, enc, cb) {
+				delete chunk.stat;
+				this.push(chunk);
+				cb();
+			}))
+			.pipe(lib.dest(dest))
+			.on('end', cb);
 	});
 });
