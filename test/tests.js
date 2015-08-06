@@ -81,15 +81,15 @@ describe('gulp-vinyl-zip', function () {
 					.pipe(through.obj(function (file, enc, cb) {
 						count++;
 
-						if (stats[file.path].atime || file.stat.atime) {
+						if (stats[file.path].atime.valueOf() || file.stat.atime.valueOf()) {
 							assert.equal(stats[file.path].atime.getTime(), file.stat.atime.getTime());
 						}
 
-						if (stats[file.path].ctime || file.stat.ctime) {
+						if (stats[file.path].ctime.valueOf() || file.stat.ctime.valueOf()) {
 							assert.equal(stats[file.path].ctime.getTime(), file.stat.ctime.getTime());
 						}
 
-						if (stats[file.path].mtime || file.stat.mtime) {
+						if (stats[file.path].mtime.valueOf() || file.stat.mtime.valueOf()) {
 							assert.equal(stats[file.path].mtime.getTime(), file.stat.mtime.getTime());
 						}
 
