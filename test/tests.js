@@ -22,6 +22,20 @@ describe('gulp-vinyl-zip', function () {
 				cb();
 			}));
 	});
+	
+	it('src should be able to read from archives in streams', function (cb) {
+		var count = 0;
+		
+		vfs.src(path.join(__dirname, 'assets', '*.zip'))
+			.pipe(lib.src())
+			.pipe(through.obj(function(chunk, enc, cb) {
+				count++;
+				cb();
+			}, function () {
+				assert.equal(7, count);
+				cb();
+			}));
+	});
 
 	it('dest should be able to create an archive from another archive', function (cb) {
 		var dest = temp.openSync('gulp-vinyl-zip-test').path;

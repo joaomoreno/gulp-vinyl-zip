@@ -20,6 +20,20 @@ gulp.task('default', function () {
 });
 ```
 
+or
+
+```javascript
+var gulp = require('gulp');
+var zip = require('gulp-vinyl-zip');
+
+gulp.task('default', function () {
+	return gulp.src('src.zip')
+		.pipe(zip.src())
+		.pipe(/* knock yourself out */)
+		.pipe(zip.dest('out.zip'));
+});
+```
+
 **Archive → File System**
 
 ```javascript
