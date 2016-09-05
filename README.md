@@ -1,5 +1,7 @@
 # gulp-vinyl-zip
 
+[![Build Status](https://travis-ci.org/joaomoreno/gulp-vinyl-zip.svg?branch=master)](https://travis-ci.org/joaomoreno/gulp-vinyl-zip)
+
 A library for creating and extracting ZIP archives from/to streams.
 
 Uses [yazl](https://github.com/thejoshwolfe/yazl)
