@@ -1,12 +1,13 @@
 'use strict';
 
+/*global describe,it*/
+
 var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var through = require('through2');
 var temp = require('temp').track();
 var vfs = require('vinyl-fs');
-var rimraf = require('rimraf');
 var lib = require('..');
 
 describe('gulp-vinyl-zip', function () {
@@ -22,10 +23,10 @@ describe('gulp-vinyl-zip', function () {
 				cb();
 			}));
 	});
-	
+
 	it('src should be able to read from archives in streams', function (cb) {
 		var count = 0;
-		
+
 		vfs.src(path.join(__dirname, 'assets', '*.zip'))
 			.pipe(lib.src())
 			.pipe(through.obj(function(chunk, enc, cb) {
