@@ -68,8 +68,7 @@ describe('gulp-vinyl-zip', function () {
 			.on('end', function () {
 				assert(fs.existsSync(dest));
 
-				// TODO: this should be 4, but symlinks are not supported by vinyl-fs yet
-				assert.equal(3, fs.readdirSync(dest).length);
+				assert.equal(4, fs.readdirSync(dest).length);
 				cb();
 			});
 	});
