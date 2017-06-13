@@ -1,6 +1,6 @@
 {
   "name": "gulp-vinyl-zip",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Streaming vinyl adapter for zip archives",
   "main": "index.js",
   "scripts": {
@@ -28,9 +28,9 @@
   "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
   "dependencies": {
     "event-stream": "^3.3.1",
-    "queue": "^3.0.10",
-    "through2": "^0.6.3",
-    "vinyl": "^0.4.6",
+    "queue": "^4.2.1",
+    "through2": "^2.0.3",
+    "vinyl": "^2.0.2",
     "vinyl-fs": "^2.0.0",
     "yauzl": "^2.2.1",
     "yazl": "^2.2.1"
