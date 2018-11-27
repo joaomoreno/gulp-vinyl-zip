@@ -36,7 +36,7 @@
     "yazl": "^2.2.1"
   },
   "devDependencies": {
-    "mocha": "^3.0.2",
+    "mocha": "^5.2.0",
     "temp": "^0.8.1"
   }
 }
