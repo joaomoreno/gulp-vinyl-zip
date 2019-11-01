@@ -38,6 +38,22 @@ describe('gulp-vinyl-zip', function () {
 			}));
 	});
 
+	it('src should emit error to stream', function (done) {
+		var message;
+
+		vfs.src(__filename)
+			.pipe(lib.src())
+			.on('error', function (err) {
+				message = err.message;
+				this.emit('end');
+			})
+			.pipe(through.obj((file, enc, next) => next(null, file), function () { this.emit('end') }))
+			.on('end', () => {
+				assert.equal('end of central directory record signature not found', message);
+				done();
+			});
+	});
+
 	it('dest should be able to create an archive from another archive', function (cb) {
 		var dest = temp.openSync('gulp-vinyl-zip-test').path;
 
