@@ -1,7 +1,10 @@
+sudo: false
 language: node_js
 node_js:
 - "6"
-sudo: false
+- "8"
+- "10"
+- "12"
 script:
 - npm run lint
 - npm test
