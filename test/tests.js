@@ -15,11 +15,11 @@ describe('gulp-vinyl-zip', function () {
 		var count = 0;
 
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
-			.pipe(through.obj(function(chunk, enc, cb) {
+			.pipe(through.obj(function (chunk, enc, cb) {
 				count++;
 				cb();
 			}, function () {
-				assert.equal(7, count);
+				assert.strictEqual(7, count);
 				cb();
 			}));
 	});
@@ -29,11 +29,11 @@ describe('gulp-vinyl-zip', function () {
 
 		vfs.src(path.join(__dirname, 'assets', '*.zip'))
 			.pipe(lib.src())
-			.pipe(through.obj(function(chunk, enc, cb) {
+			.pipe(through.obj(function (chunk, enc, cb) {
 				count++;
 				cb();
 			}, function () {
-				assert.equal(7, count);
+				assert.strictEqual(7, count);
 				cb();
 			}));
 	});
@@ -47,9 +47,9 @@ describe('gulp-vinyl-zip', function () {
 				message = err.message;
 				this.emit('end');
 			})
-			.pipe(through.obj((file, enc, next) => next(null, file), function () { this.emit('end') }))
+			.pipe(through.obj((file, enc, next) => next(null, file), function () { this.emit('end'); }))
 			.on('end', () => {
-				assert.equal('end of central directory record signature not found', message);
+				assert.strictEqual('end of central directory record signature not found', message);
 				done();
 			});
 	});
@@ -85,7 +85,7 @@ describe('gulp-vinyl-zip', function () {
 			.on('end', function () {
 				assert(fs.existsSync(dest));
 
-				assert.equal(4, fs.readdirSync(dest).length);
+				assert.strictEqual(4, fs.readdirSync(dest).length);
 				cb();
 			});
 	});
@@ -112,24 +112,24 @@ describe('gulp-vinyl-zip', function () {
 						count++;
 
 						if (stats[file.path].atime.valueOf() || file.stat.atime.valueOf()) {
-							assert.equal(stats[file.path].atime.getTime(), file.stat.atime.getTime());
+							assert.strictEqual(stats[file.path].atime.getTime(), file.stat.atime.getTime());
 						}
 
 						if (stats[file.path].ctime.valueOf() || file.stat.ctime.valueOf()) {
-							assert.equal(stats[file.path].ctime.getTime(), file.stat.ctime.getTime());
+							assert.strictEqual(stats[file.path].ctime.getTime(), file.stat.ctime.getTime());
 						}
 
 						if (stats[file.path].mtime.valueOf() || file.stat.mtime.valueOf()) {
-							assert.equal(stats[file.path].mtime.getTime(), file.stat.mtime.getTime());
+							assert.strictEqual(stats[file.path].mtime.getTime(), file.stat.mtime.getTime());
 						}
 
-						assert.equal(stats[file.path].isFile(), file.stat.isFile());
-						assert.equal(stats[file.path].isDirectory(), file.stat.isDirectory());
-						assert.equal(stats[file.path].isSymbolicLink(), file.stat.isSymbolicLink());
+						assert.strictEqual(stats[file.path].isFile(), file.stat.isFile());
+						assert.strictEqual(stats[file.path].isDirectory(), file.stat.isDirectory());
+						assert.strictEqual(stats[file.path].isSymbolicLink(), file.stat.isSymbolicLink());
 
 						cb();
 					}, function () {
-						assert.equal(7, count);
+						assert.strictEqual(7, count);
 						cb();
 					}));
 			});
@@ -139,7 +139,7 @@ describe('gulp-vinyl-zip', function () {
 		var dest = temp.openSync('gulp-vinyl-zip-test').path;
 
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
-			.pipe(through.obj(function(chunk, enc, cb) {
+			.pipe(through.obj(function (chunk, enc, cb) {
 				delete chunk.stat;
 				this.push(chunk);
 				cb();
