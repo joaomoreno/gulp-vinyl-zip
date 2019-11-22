@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/joaomoreno/gulp-vinyl-zip",
   "dependencies": {
-    "event-stream": "3.3.4",
     "queue": "^4.2.1",
+    "through": "^2.3.8",
     "through2": "^2.0.3",
     "vinyl": "^2.0.2",
     "vinyl-fs": "^3.0.3",
