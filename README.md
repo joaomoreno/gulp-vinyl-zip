@@ -1,6 +1,6 @@
 # gulp-vinyl-zip
 
-[![Build Status](https://travis-ci.org/joaomoreno/gulp-vinyl-zip.svg?branch=master)](https://travis-ci.org/joaomoreno/gulp-vinyl-zip)
+[![CI](https://github.com/joaomoreno/gulp-vinyl-zip/actions/workflows/ci.yml/badge.svg)](https://github.com/joaomoreno/gulp-vinyl-zip/actions/workflows/ci.yml)
 
 A library for creating and extracting ZIP archives from/to streams.
 
