@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         node: ["10", "12", "14"]
-    name: Node v${{ matrix.node }}
+    name: Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
