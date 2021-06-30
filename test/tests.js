@@ -17,11 +17,18 @@ describe('gulp-vinyl-zip', function () {
 		lib.src(path.join(__dirname, 'assets', 'archive.zip'))
 			.pipe(through.obj(function (chunk, enc, cb) {
 				const filepath = chunk.path;
-				const filemode = chunk.stat.mode;
-				if (filepath === 'vinyl-zip.fs') {
-					assert.strictEqual(33188, filemode);
-				} else if (chunk.path === 'src/index.js') {
-					assert.strictEqual(33204, filemode);
+				if (filepath === 'vinyl-zip.js') {
+					assert.strictEqual(33188, chunk.stat.mode);
+					assert.strictEqual(230, chunk.stat.size);
+				} else if (filepath === 'src') {
+					assert.strictEqual(16877, chunk.stat.mode);
+					assert.strictEqual(undefined, chunk.stat.size);
+				} else if (filepath === 'link') {
+					assert.strictEqual(41453, chunk.stat.mode);
+					assert.strictEqual(13, chunk.stat.size);
+				} else if (filepath === 'src/index.js') {
+					assert.strictEqual(33204, chunk.stat.mode);
+					assert.strictEqual(555, chunk.stat.size);
 				}
 				count++;
 				cb();
