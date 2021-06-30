@@ -7,6 +7,9 @@
     "lint": "eslint lib test",
     "test": "mocha"
   },
+  "engines": {
+    "node": ">= 10"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/joaomoreno/gulp-vinyl-zip.git"
